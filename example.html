@@ -1,0 +1,11 @@
+<h1>Formify Example</h1>
+<p>Just add the formify attribute to your form and it will be sent using formify (Fetch API) if Javascript is active on the client, else it will be sent using default browser behaviour.</p>
+<form id="formify-example" action="example.php" method="get" formify="on">
+    <label for="text1">Text Input:</label>
+    <input type="text" id="text1" name="text1">
+    <label for="number1">Number Input:</label>
+    <input type="number" id="number1" name="number1">
+    <button type="submit" value="Submit">OMG</button>
+</form>
+
+<script src="scripts/formify.js"></script>

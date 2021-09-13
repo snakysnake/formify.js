@@ -1,1 +1,2 @@
 # formify.js
+Formify.js is a very small JavaScript helper file with MIT License for anyone to use and change. With formify.js you can turn your default HTML Form Submit into a JavaScript form submit by writing less than one line of code. I enjoy using it myself for multiple projects and figured  I just share it for anyone to use, I hope you can do something with it.
