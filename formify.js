@@ -29,7 +29,32 @@ async function submitForm(form) {
     for (i = 0; i < inputFields.length; i++) {
         //add to formdata
         console.log(String(inputFields[i].name), String(inputFields[i].value));
-        formData.append(String(inputFields[i].name), String(inputFields[i].value));
+
+        //if a key already exists, only add value of next one if checked (radiobuttons)
+        if (formData.get(inputFields[i].name))
+        {
+            if (inputFields[i].checked)
+            {
+                formData.delete(inputFields[i].name);
+                formData.append(String(inputFields[i].name), String(inputFields[i].value));
+            }
+        }
+        //checkbox support
+        else if (inputFields[i].type == "checkbox")
+        {
+            if (inputFields[i].checked)
+            {
+                formData.append(String(inputFields[i].name), String(inputFields[i].value));
+            }
+            else 
+            {
+                formData.append(String(inputFields[i].name), "off");
+            }
+        }
+        else
+        {
+            formData.append(String(inputFields[i].name), String(inputFields[i].value));
+        }
     }
 
     //get target url from form action
@@ -38,6 +63,8 @@ async function submitForm(form) {
 
     //send form
     response = await postData(target_url, formData, t_method);
+
+    console.log(response);
 }
 
 /**
